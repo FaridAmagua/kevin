@@ -758,8 +758,12 @@ body {
     text-align: center;
 }
 
+.help-eyebrow-mobile {
+    display: none;
+}
+
 .help-title {
-    font-size: clamp(1.15rem, 1.45vw, 1.45rem);
+    font-size: clamp(1.22rem, 1.55vw, 1.55rem);
     line-height: 1.4;
     font-weight: 600;
     color: var(--text-primary);
@@ -862,11 +866,21 @@ body {
     }
 
     .help-eyebrow {
+        display: none;
+    }
+
+    .help-eyebrow-mobile {
+        display: block;
+        text-align: center;
         font-size: 1.2rem;
+        font-weight: 800;
+        letter-spacing: 0.8px;
+        color: #E44C87;
+        margin-bottom: 0.2rem;
     }
 
     .help-title {
-        font-size: 1.06rem;
+        font-size: 1.14rem;
         max-width: none;
     }
 
@@ -921,7 +935,7 @@ body {
     }
 
     .help-title {
-        font-size: clamp(1.3rem, 1.95vw, 1.8rem);
+        font-size: clamp(1.4rem, 2.1vw, 1.95rem);
         text-align: center;
         margin-inline: auto;
     }
