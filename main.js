@@ -1,17 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- PREMIUM SMOOTH SCROLL (LENIS) ---
-    const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smoothWheel: true
-    });
+    const useLenis = window.matchMedia('(pointer: fine)').matches && window.innerWidth >= 768;
 
-    function raf(time) {
-        lenis.raf(time);
+    if (useLenis) {
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
         requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
 
     // --- SCROLL REVEAL ANIMATION ---
     const slideUpElements = document.querySelectorAll('.slide-up');
@@ -34,61 +39,57 @@ document.addEventListener('DOMContentLoaded', () => {
     slideUpElements.forEach(el => revealOnScroll.observe(el));
 
 
-    // --- DELAYED COUNT UP ANIMATION OBSERVER ---
+    // --- INDIVIDUAL COUNT UP ANIMATION OBSERVER ---
     const counterObserverOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.4 // Only trigger when 40% of the cards grid is visible on screen
+        threshold: 0.1
     };
 
     const counterObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                startCountUpAnimations();
+                animateSingleCounter(entry.target);
                 observer.unobserve(entry.target);
             }
         });
     }, counterObserverOptions);
 
-    const statsGrid = document.querySelector('.stats-grid');
-    if (statsGrid) {
-        counterObserver.observe(statsGrid);
+    document.querySelectorAll('.count-up').forEach(el => counterObserver.observe(el));
+
+    function animateSingleCounter(counter) {
+        if (counter.dataset.animated) return;
+        counter.dataset.animated = 'true';
+
+        const target = +counter.getAttribute('data-target');
+        const duration = 2500; // 2.5 seconds
+        const startTime = performance.now();
+        
+        const formatNumber = (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        const updateCounter = (currentTime) => {
+            const elapsedTime = currentTime - startTime;
+            if (elapsedTime < duration) {
+                const progress = elapsedTime / duration;
+                const easeOutProgress = 1 - Math.pow(1 - progress, 4);
+                counter.innerText = formatNumber(Math.floor(target * easeOutProgress));
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.innerText = formatNumber(target);
+            }
+        };
+        requestAnimationFrame(updateCounter);
     }
 
+    // --- VIDEO PLAY EVENT FOR DELAYED CTA ---
+    const heroVideo = document.getElementById('hero-video');
+    const videoOverlay = document.getElementById('video-cta-overlay');
 
-    // --- COUNT UP ANIMATION ---
-    let animationsStarted = false;
-
-    function startCountUpAnimations() {
-        if (animationsStarted) return;
-        animationsStarted = true;
-
-        const counters = document.querySelectorAll('.count-up');
-        const duration = 3500; // 3.5 seconds
-
-        counters.forEach(counter => {
-            const target = +counter.getAttribute('data-target');
-            const startTime = performance.now();
-            const formatNumber = (num) => {
-                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            };
-
-            const updateCounter = (currentTime) => {
-                const elapsedTime = currentTime - startTime;
-                if (elapsedTime < duration) {
-                    const progress = elapsedTime / duration;
-                    // Ease out Quart function for smooth acceleration and deceleration without jumping too fast at the start
-                    const easeOutProgress = 1 - Math.pow(1 - progress, 4);
-                    
-                    const currentValue = Math.floor(target * easeOutProgress);
-                    counter.innerText = formatNumber(currentValue);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    counter.innerText = formatNumber(target);
-                }
-            };
-            requestAnimationFrame(updateCounter);
-        });
+    if (heroVideo && videoOverlay) {
+        heroVideo.addEventListener('play', () => {
+            setTimeout(() => {
+                videoOverlay.classList.add('visible');
+            }, 3000); // 3 seconds after play
+        }, { once: true }); // Only trigger once per session/page load
     }
-
 });

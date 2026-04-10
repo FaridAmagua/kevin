@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <!-- Header / Nav (Minimalist) -->
@@ -20,15 +22,22 @@
     <section class="hero">
         <div class="badge-proof">
             <div class="avatars">
-                <div class="avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80&fit=crop" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
-                <div class="avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80&fit=crop" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
-                <div class="avatar"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&q=80&fit=crop" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+                <div class="avatar"><img
+                        src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80&fit=crop"
+                        style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+                <div class="avatar"><img
+                        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80&fit=crop"
+                        style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+                <div class="avatar"><img
+                        src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&q=80&fit=crop"
+                        style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
             </div>
-            <span>+$4.000.000 en resultados de clientes</span>
+            <span>+<span class="count-up" data-target="100">0</span> clientes con resultados reales</span>
         </div>
-        
-        <h1 class="hero-title">Voy a Ayudarte a Escalar a $100.000/mes<br> y Posicionarte Como El #1 En Tu Nicho</h1>
-        
+
+        <h1 class="hero-title">Vuelve a sentirte <span class="highlight-yellow">segura, fuerte y orgullosa</span> de tu
+            cuerpo.</h1>
+
         <div class="video-container mock-mac-window">
             <div class="mac-header">
                 <div class="mac-buttons">
@@ -38,23 +47,30 @@
                 </div>
             </div>
             <div class="iframe-wrapper">
-                <iframe 
-                    width="100%" 
-                    height="100%" 
-                    src="https://www.youtube.com/embed/4Pxbx6oAbsI?autoplay=0&rel=0&controls=1" 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
+                <video
+                    id="hero-video"
+                    src="Video.mp4"
+                    controls
+                    playsinline
+                    preload="auto">
+                    Tu navegador no soporta la reproducción de vídeo.
+                </video>
+                <!-- CTA Overlay that appears after 3s of play -->
+                <div id="video-cta-overlay" class="video-cta-overlay">
+                    <button class="primary-button cta-btn">AGENDAR MI LLAMADA AHORA</button>
+                </div>
             </div>
         </div>
 
         <!-- CTA bajo el video -->
         <div class="cta-container">
-            <p style="color:#c6c6c6;font-size:0.95rem;margin-bottom:0.5rem;">Llena la aplicación y agenda tu llamada en este calendario</p>
+            <p style="color:#333;font-size:0.95rem;margin-bottom:0.5rem;font-weight:500;">Llena la aplicación y agenda
+                tu llamada en este calendario</p>
             <div class="scroll-indicator">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
             </div>
             <button class="primary-button hero-btn">AGENDAR AHORA &rarr;</button>
         </div>
@@ -65,167 +81,149 @@
     <!-- Los Números No Mienten -->
     <section class="stats-section slide-up">
         <div class="k-graphic">K</div>
-        <h2 class="section-title">Los Números No Mienten</h2>
-        <p class="stats-subtitle">Estos son los resultados generados para nuestros clientes.</p>
+        <h2 class="section-title">RESULTADOS REALES, NO PROMESAS</h2>
+        <p class="stats-subtitle">Transformaciones reales de clientas que han seguido el método paso a paso.</p>
         <div class="stats-grid">
             <div class="stat-card">
-                <h3 class="stat-number">+ <span class="count-up" data-target="103463">0</span><span class="stat-suffix">USD</span></h3>
-                <p class="stat-title">En Ventas Extra Trackeadas</p>
-                <p class="stat-desc">Promedio generado por clientes en los primeros 3-6 meses.</p>
+                <h3 class="stat-number">+<span class="count-up stat-big" data-target="8">0</span><span class="stat-suffix">SEM.</span></h3>
+                <p class="stat-title">CAMBIOS REALES EN SEMANAS</p>
+                <p class="stat-desc">Resultados visibles en clientas en las primeras 6-8 semanas con seguimiento personalizado.</p>
             </div>
             <div class="stat-card">
-                <h3 class="stat-number">+<span class="count-up" data-target="21">0</span></h3>
-                <p class="stat-title">Nichos Únicos</p>
-                <p class="stat-desc">En los que hemos registrado Casos de Éxito.</p>
+                <h3 class="stat-number">+<span class="count-up" data-target="100">0</span></h3>
+                <p class="stat-title">CLIENTAS TRANSFORMADAS</p>
+                <p class="stat-desc">Mujeres que han cambiado su cuerpo con un plan adaptado a sus objetivos y estilo de vida.</p>
             </div>
             <div class="stat-card">
-                <h3 class="stat-number">+<span class="count-up" data-target="75">0</span><span class="stat-suffix">%</span></h3>
-                <p class="stat-title">Margen de Beneficio</p>
-                <p class="stat-desc">Promedio generado para cada uno de nuestros clientes.</p>
+                <h3 class="stat-number"><span class="stat-big">%</span></h3>
+                <p class="stat-title">RESULTADOS SOSTENIBLES</p>
+                <p class="stat-desc">Cambios que se mantienen en el tiempo sin dietas extremas ni efecto rebote.</p>
             </div>
         </div>
+        <p class="stats-disclaimer">Resultados obtenidos por clientas reales. Cada proceso es personalizado y puede variar.</p>
     </section>
+
 
     <!-- Resultados de Clientes -->
     <section class="results-section">
         <h2 class="section-title slide-up">Resultados de Clientes</h2>
-        
+
         <div class="results-grid">
-            <!-- Client Card 1 -->
+            <!-- Client Card 1 (Local) -->
             <div class="result-card slide-up">
                 <div class="result-content">
-                    <h3 class="result-headline">Múltiples 6 cifras al año con una oferta y un sistema de adquisición.</h3>
-                    <p class="result-quote">"Ayudamos al referente #1 en creación de contenido en español a escalar su negocio de formación con un sistema híbrido entre contenido orgánico y anuncios."</p>
-                    
                     <div class="client-profile">
-                        <div class="client-avatar">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80&fit=crop" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
-                        </div>
                         <div class="client-info">
-                            <h4>Gonzalo Seré</h4>
-                            <p>Ghostwriting Acad. &bull; <span class="ig">@gonzalo</span></p>
+                            <h4>María García</h4>
+                            <p>Plan Personalizado &bull; <span class="ig">@maria_fit</span></p>
                         </div>
                     </div>
+                    <p class="result-quote">"Pasé de sentirme estancada y sin energía a recuperar mi confianza, fuerza y el cuerpo que siempre quise."</p>
                 </div>
                 <div class="result-image-placeholder">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=348&h=348&fit=crop&q=80" alt="Client Image" style="width:100%; height:100%; object-fit:cover; object-position:top center;">
+                    <img src="1.png" alt="Transformación María" style="width:100%; height:100%; object-fit:cover; object-position:center;">
                 </div>
             </div>
 
-            <!-- Client Card 2 -->
+            <!-- Client Card 2 (Local) -->
             <div class="result-card slide-up">
                 <div class="result-content">
-                    <h3 class="result-headline">$105.000 USD en un solo mes.</h3>
-                    <p class="result-quote">"Pasamos de estar estancados a escalar exponencialmente estructurando el equipo y optimizando el mensaje de ventas."</p>
-                    
                     <div class="client-profile">
-                        <div class="client-avatar"></div>
                         <div class="client-info">
-                            <h4>Jordi Rebordosa</h4>
-                            <p>Zero Chats &bull; <span class="ig">@jordi</span></p>
+                            <h4>Lucía Pérez</h4>
+                            <p>Entrenamiento Online &bull; <span class="ig">@lucia_health</span></p>
                         </div>
                     </div>
+                    <p class="result-quote">"El método de Kevin no es una dieta, es un cambio de estilo de vida que puedo mantener mientras disfruto de mi día a día."</p>
                 </div>
                 <div class="result-image-placeholder">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=348&h=348&fit=crop&q=80" alt="Client Image" style="width:100%; height:100%; object-fit:cover; object-position:top center;">
+                    <img src="2.png" alt="Transformación Lucía" style="width:100%; height:100%; object-fit:cover; object-position:center;">
                 </div>
             </div>
 
-            <!-- Client Card 3 -->
+            <!-- Client Card 3 (Local) -->
             <div class="result-card slide-up">
                 <div class="result-content">
-                    <h3 class="result-headline">De cero a $30.000 USD al mes.</h3>
-                    <p class="result-quote">"Implementamos funnels automatizados que me permitieron desconectar mi tiempo de la entrega del servicio y centrarme sólo en escalar."</p>
-                    
                     <div class="client-profile">
-                        <div class="client-avatar"></div>
                         <div class="client-info">
-                            <h4>Sebas Wealth</h4>
-                            <p>Wealth Mentoring &bull; <span class="ig">@sebas_wealth</span></p>
+                            <h4>Elena Martínez</h4>
+                            <p>Mentoría VIP &bull; <span class="ig">@elena_wellness</span></p>
                         </div>
                     </div>
+                    <p class="result-quote">"Nunca pensé que podría verme y sentirme así. El seguimiento diario fue la clave para no rendirme."</p>
                 </div>
                 <div class="result-image-placeholder">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=348&h=348&fit=crop&q=80" alt="Client Image" style="width:100%; height:100%; object-fit:cover; object-position:top center;">
+                    <img src="3.png" alt="Transformación Elena" style="width:100%; height:100%; object-fit:cover; object-position:center;">
                 </div>
             </div>
 
             <!-- Client Card 4 -->
             <div class="result-card slide-up">
                 <div class="result-content">
-                    <h3 class="result-headline">$45.000 USD al mes con solo $900 de inversión en anuncios.</h3>
-                    <p class="result-quote">"De tener una audiencia quemada y saturada a generar nuevos prospectos calificados todos los días y escalar consistentemente."</p>
-                    
                     <div class="client-profile">
-                        <div class="client-avatar">
-                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&q=80&fit=crop" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
-                        </div>
                         <div class="client-info">
                             <h4>Santiago Amado</h4>
                             <p>Mentoría 1% &bull; <span class="ig">@santiago_amado</span></p>
                         </div>
                     </div>
+                    <p class="result-quote">"De tener una audiencia quemada y saturada a generar nuevos prospectos calificados todos los días y escalar consistentemente."</p>
                 </div>
                 <div class="result-image-placeholder">
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=348&h=348&fit=crop&q=80" alt="Client Image" style="width:100%; height:100%; object-fit:cover; object-position:top center;">
+                    <img src="4.png" alt="Transformación Santiago" style="width:100%; height:100%; object-fit:cover; object-position:center;">
                 </div>
             </div>
 
             <!-- Client Card 5 -->
             <div class="result-card slide-up">
                 <div class="result-content">
-                    <h3 class="result-headline">$420.000 USD en ventas con su coaching de finanzas.</h3>
-                    <p class="result-quote">"Vendiendo a latinos en EEUU. Con 1 sola oferta, 75% de margen, 3 personas en todo el equipo y solo haciendo lo que le gusta."</p>
-                    
                     <div class="client-profile">
-                        <div class="client-avatar">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80&fit=crop" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
-                        </div>
                         <div class="client-info">
                             <h4>Alex Osorio</h4>
                             <p>Método VEMA &bull; <span class="ig">@alex_osorio</span></p>
                         </div>
                     </div>
+                    <p class="result-quote">"Vendiendo a latinos en EEUU. Con 1 sola oferta, 75% de margen, 3 personas en todo el equipo y solo haciendo lo que le gusta."</p>
                 </div>
                 <div class="result-image-placeholder">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=348&h=348&fit=crop&q=80" alt="Client Image" style="width:100%; height:100%; object-fit:cover; object-position:top center;">
+                    <img src="5.png" alt="Transformación Alex" style="width:100%; height:100%; object-fit:cover; object-position:center;">
                 </div>
             </div>
 
             <!-- Client Card 6 -->
             <div class="result-card slide-up">
                 <div class="result-content">
-                    <h3 class="result-headline">De $5k a $50k mensuales en menos de 90 días.</h3>
-                    <p class="result-quote">"Implementamos nuestro sistema de retención y LTV para dejar de depender de nuevos clientes y maximizar el beneficio de recompras."</p>
-                    
                     <div class="client-profile">
-                        <div class="client-avatar">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80&fit=crop" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
-                        </div>
                         <div class="client-info">
                             <h4>Christian Castro</h4>
                             <p>E-commerce Plus &bull; <span class="ig">@christian</span></p>
                         </div>
                     </div>
+                    <p class="result-quote">"Implementamos nuestro sistema de retención y LTV para dejar de depender de nuevos clientes y maximizar el beneficio de recompras."</p>
                 </div>
                 <div class="result-image-placeholder">
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=348&h=348&fit=crop&q=80" alt="Client Image" style="width:100%; height:100%; object-fit:cover; object-position:top center;">
+                    <img src="6.png" alt="Transformación Christian" style="width:100%; height:100%; object-fit:cover; object-position:center;">
                 </div>
             </div>
-            
         </div>
     </section>
+
 
     <!-- Final CTA -->
     <section class="final-cta slide-up">
         <div class="cta-card">
             <div class="badge-proof">
                 <div class="avatars">
-                    <div class="avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80&fit=crop" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
-                    <div class="avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80&fit=crop" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
-                    <div class="avatar"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&q=80&fit=crop" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+                    <div class="avatar"><img
+                            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80&fit=crop"
+                            style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+                    <div class="avatar"><img
+                            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80&fit=crop"
+                            style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+                    <div class="avatar"><img
+                            src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&q=80&fit=crop"
+                            style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
                 </div>
-                <span>+$4.000.000 en resultados de clientes</span>
+                <span>+<span class="count-up" data-target="100">0</span> clientes con resultados reales</span>
             </div>
             <h2>Agenda tu Llamada<br>de Aplicación</h2>
             <button class="primary-button cta-btn">AGENDAR AHORA &rarr;</button>
@@ -241,4 +239,5 @@
     <script src="https://unpkg.com/lenis@1.1.10/dist/lenis.min.js"></script>
     <script src="main.js"></script>
 </body>
+
 </html>
