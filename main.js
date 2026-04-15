@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const CALENDLY_URL = 'https://calendly.com/gonzalosbpartner/reunion-gonzalo';
+    const CALENDLY_URL = 'https://calendly.com/d/ct9m-g6s-8xk/llamada-de-valoracion-nutritp';
 
     // --- PREMIUM SMOOTH SCROLL (LENIS) ---
     const useLenis = window.matchMedia('(pointer: fine)').matches && window.innerWidth >= 768;
