@@ -246,6 +246,19 @@ body {
     border-radius: 26px;
 }
 
+.iframe-wrapper::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 108px;
+    height: 46px;
+    pointer-events: none;
+    z-index: 4;
+    border-bottom-right-radius: 26px;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 34%, rgba(0, 0, 0, 0.98) 100%);
+}
+
 /* CTA Overlay inside the video player */
 .video-cta-overlay {
     position: absolute;
@@ -446,6 +459,13 @@ body {
     .iframe-wrapper iframe,
     .iframe-wrapper video {
         border-radius: 22px;
+    }
+
+    .iframe-wrapper::after {
+        width: 72px;
+        height: 44px;
+        border-bottom-right-radius: 22px;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.82) 38%, rgba(0, 0, 0, 0.98) 100%);
     }
 
     .method-highlight {
@@ -796,7 +816,7 @@ body {
 .client-info h4 {
     font-size: 1.02rem;
     font-weight: 700;
-    margin-bottom: 2px;
+    margin-bottom: 0;
 }
 
 .client-info p {

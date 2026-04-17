@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 3000);
             }, { once: true });
         } else {
-            // YouTube iframe: we don't get native play events without extra API wiring
+            // Iframe embebido (YouTube/Vimeo): mostramos el CTA con retraso sin depender de su API
             setTimeout(() => {
                 videoOverlay.classList.add('visible');
             }, 2500);
