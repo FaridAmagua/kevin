@@ -240,17 +240,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroVideo = document.getElementById('hero-video');
     const videoOverlay = document.getElementById('video-cta-overlay');
 
-    if (heroVideo && videoOverlay) {
+    if (heroVideo) {
         if (heroVideo.tagName === 'VIDEO') {
             heroVideo.addEventListener('play', () => {
                 setTimeout(() => {
-                    videoOverlay.classList.add('visible');
+                    if (videoOverlay) {
+                        videoOverlay.classList.add('visible');
+                    }
                 }, 3000);
             }, { once: true });
+        } else if (window.Vimeo) {
+            const vimeoPlayer = new window.Vimeo.Player(heroVideo);
+            let fullscreenTestTriggered = false;
+
+            vimeoPlayer.on('play', () => {
+                if (fullscreenTestTriggered) {
+                    return;
+                }
+
+                fullscreenTestTriggered = true;
+
+                setTimeout(async () => {
+                    if (videoOverlay) {
+                        videoOverlay.classList.add('visible');
+                    }
+
+                    try {
+                        await vimeoPlayer.requestFullscreen();
+                        console.log('Fullscreen activado automaticamente tras 3 segundos.');
+                    } catch (error) {
+                        console.warn('El navegador bloqueo el fullscreen automatico tras 3 segundos.', error);
+                    }
+                }, 3000);
+            });
         } else {
-            // Iframe embebido (YouTube/Vimeo): mostramos el CTA con retraso sin depender de su API
+            // Fallback si la API de Vimeo no carga
             setTimeout(() => {
-                videoOverlay.classList.add('visible');
+                if (videoOverlay) {
+                    videoOverlay.classList.add('visible');
+                }
             }, 2500);
         }
     }
