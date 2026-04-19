@@ -111,11 +111,12 @@ body {
 }
 
 .thanks-hero h1 {
-    max-width: 10ch;
+    max-width: 12ch;
     margin: 0.8rem auto 1rem;
-    font-size: clamp(2.6rem, 7vw, 5.6rem);
-    line-height: 0.95;
+    font-size: clamp(2.9rem, 5.2vw, 4.7rem);
+    line-height: 0.92;
     letter-spacing: -0.06em;
+    text-wrap: balance;
 }
 
 .thanks-intro {
@@ -269,6 +270,12 @@ body {
     .thanks-hero {
         padding: 3rem 1rem 2.4rem;
         border-radius: 24px;
+    }
+
+    .thanks-hero h1 {
+        max-width: 8.6ch;
+        font-size: clamp(2.15rem, 9.2vw, 3.7rem);
+        line-height: 0.94;
     }
 
     .thanks-proof {
