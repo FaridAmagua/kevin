@@ -548,6 +548,55 @@ body {
     }
 }
 
+@media (min-width: 1024px) {
+    .results-section,
+    .help-section {
+        background: transparent;
+    }
+
+    .stats-panel {
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .results-panel,
+    .help-panel {
+        background: transparent !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: none;
+        width: 100%;
+    }
+
+    .help-section::before,
+    .help-section::after {
+        display: none;
+    }
+
+    .final-cta {
+        background: transparent;
+    }
+
+    .cta-card {
+        background: transparent !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: none;
+        width: 100%;
+    }
+
+    .cta-card::after {
+        display: none;
+    }
+}
+
 .k-graphic {
     font-size: 4rem;
     font-weight: 800;
