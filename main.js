@@ -1,6 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
     const CALENDLY_URL = 'https://calendly.com/d/ct9m-g6s-8xk/llamada-de-valoracion-nutritp';
 
+    // --- GTM / DATALAYER TRACKING ---
+    // Garantiza que dataLayer exista antes de enviar cualquier evento a Google Tag Manager.
+    window.dataLayer = window.dataLayer || [];
+
+    // Evento de carga de la landing principal.
+    window.dataLayer.push({
+        event: 'page_view_landing'
+    });
+
+    function getCalendlyButtonLocation(button) {
+        if (!button) return 'unknown';
+
+        if (button.closest('.video-cta-below')) {
+            return 'hero_video_cta';
+        }
+
+        if (button.closest('.final-cta')) {
+            return 'final_cta';
+        }
+
+        return 'unknown';
+    }
+
     // --- PREMIUM SMOOTH SCROLL (LENIS) ---
     const useLenis = window.matchMedia('(pointer: fine)').matches && window.innerWidth >= 768;
 
@@ -286,6 +309,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- CALENDLY CTA LINKS ---
     document.querySelectorAll('[data-calendly-link]').forEach((button) => {
         button.addEventListener('click', () => {
+            // Envia el evento a GTM antes de abrir Calendly para no perder el clic.
+            window.dataLayer.push({
+                event: 'schedule_click',
+                button_text: button.textContent.trim(),
+                button_location: getCalendlyButtonLocation(button),
+                calendly_url: CALENDLY_URL
+            });
+
             window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer');
         });
     });
