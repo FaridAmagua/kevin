@@ -307,7 +307,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- CALENDLY CTA LINKS ---
-    document.querySelectorAll('[data-calendly-link]').forEach((button) => {
+    const scheduleButtons = document.querySelectorAll('.btn-agendar');
+
+    if (!scheduleButtons.length) {
+        console.log('GTM debug: no se encontraron botones .btn-agendar');
+    }
+
+    scheduleButtons.forEach((button) => {
         button.addEventListener('click', () => {
             // Envia el evento a GTM antes de abrir Calendly para no perder el clic.
             window.dataLayer.push({
@@ -316,6 +322,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 button_location: getCalendlyButtonLocation(button),
                 calendly_url: CALENDLY_URL
             });
+
+            console.log('GTM debug: schedule_click enviado');
 
             window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer');
         });
