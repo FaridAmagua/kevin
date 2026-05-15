@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const CALENDLY_URL = 'https://calendly.com/d/ct9m-g6s-8xk/llamada-de-valoracion-nutritp';
+    const CALENDLY_URL = 'https://calendly.com/d/ct9m-g6s-8xk/llamada-de-valoracion-nutritp?hide_event_type_details=1&hide_gdpr_banner=1';
 
     // --- GTM / DATALAYER TRACKING ---
     // Garantiza que dataLayer exista antes de enviar cualquier evento a Google Tag Manager.
@@ -22,6 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         return 'unknown';
+    }
+
+    function openCalendlyPopup() {
+        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+            window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+            return;
+        }
+
+        window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer');
     }
 
     // --- PREMIUM SMOOTH SCROLL (LENIS) ---
@@ -309,7 +318,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- CALENDLY CTA LINKS ---
     document.querySelectorAll('[data-calendly-link]').forEach((button) => {
         button.addEventListener('click', () => {
-            // Envia el evento a GTM antes de abrir Calendly para no perder el clic.
             window.dataLayer.push({
                 event: 'schedule_click',
                 button_text: button.textContent.trim(),
@@ -317,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 calendly_url: CALENDLY_URL
             });
 
-            window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer');
+            openCalendlyPopup();
         });
     });
 });
