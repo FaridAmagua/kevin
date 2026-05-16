@@ -1,7 +1,7 @@
 (function () {
     const STORAGE_KEY = 'nutritp_calories_result';
     const CALENDLY_URL = 'https://calendly.com/d/ct9m-g6s-8xk/llamada-de-valoracion-nutritp?hide_event_type_details=1&hide_gdpr_banner=1';
-    const LEAD_WEBHOOK_URL = '';
+    const LEAD_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwxLtJhEWJt6Nv3uIe4d9A7USUJudM58m3hKnSydDdYGYHS7M9YzEIxMbZ-NYk9BNhp/exec';
 
     window.dataLayer = window.dataLayer || [];
 
