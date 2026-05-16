@@ -254,6 +254,12 @@ select:focus {
     margin-top: 0.25rem;
 }
 
+.submit-button:disabled {
+    cursor: wait;
+    opacity: 0.72;
+    transform: none;
+}
+
 .submit-button:hover,
 .booking-button:hover {
     transform: translateY(-1px);

@@ -1,6 +1,7 @@
 (function () {
     const STORAGE_KEY = 'nutritp_calories_result';
     const CALENDLY_URL = 'https://calendly.com/d/ct9m-g6s-8xk/llamada-de-valoracion-nutritp?hide_event_type_details=1&hide_gdpr_banner=1';
+    const LEAD_WEBHOOK_URL = '';
 
     window.dataLayer = window.dataLayer || [];
 
@@ -28,6 +29,59 @@
         return String(name || 'tu').trim().split(/\s+/)[0] || 'tu';
     }
 
+    function normalizeEmail(email) {
+        return String(email || '').trim().toLowerCase();
+    }
+
+    async function saveLead(result) {
+        if (!LEAD_WEBHOOK_URL) {
+            console.warn('Nutri TP: falta configurar LEAD_WEBHOOK_URL para guardar leads.');
+            return {
+                skipped: true
+            };
+        }
+
+        if (LEAD_WEBHOOK_URL.includes('script.google.com')) {
+            await fetch(LEAD_WEBHOOK_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'text/plain;charset=utf-8'
+                },
+                body: JSON.stringify({
+                    id: result.email,
+                    source: 'calories_calculator',
+                    ...result
+                })
+            });
+
+            return {
+                ok: true,
+                opaque: true
+            };
+        }
+
+        const response = await fetch(LEAD_WEBHOOK_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: result.email,
+                source: 'calories_calculator',
+                ...result
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('No se pudo guardar el lead.');
+        }
+
+        return response.json().catch(() => ({
+            ok: true
+        }));
+    }
+
     function openCalendlyPopup() {
         if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
             window.Calendly.initPopupWidget({ url: CALENDLY_URL });
@@ -47,7 +101,7 @@
             event: 'calories_calculator_view'
         });
 
-        form.addEventListener('submit', (event) => {
+        form.addEventListener('submit', async (event) => {
             event.preventDefault();
 
             if (!form.checkValidity()) {
@@ -55,6 +109,13 @@
                 form.reportValidity();
                 return;
             }
+
+            const submitButton = form.querySelector('[type="submit"]');
+            const defaultButtonText = submitButton.textContent;
+
+            error.textContent = '';
+            submitButton.disabled = true;
+            submitButton.textContent = 'Calculando...';
 
             const formData = new FormData(form);
             const payload = {
@@ -64,7 +125,7 @@
                 weight: Number(formData.get('weight')),
                 activity: Number(formData.get('activity')),
                 name: String(formData.get('name') || '').trim(),
-                email: String(formData.get('email') || '').trim()
+                email: normalizeEmail(formData.get('email'))
             };
 
             const result = {
@@ -73,20 +134,28 @@
                 createdAt: new Date().toISOString()
             };
 
-            sessionStorage.setItem(STORAGE_KEY, JSON.stringify(result));
+            try {
+                await saveLead(result);
+                sessionStorage.setItem(STORAGE_KEY, JSON.stringify(result));
 
-            window.dataLayer.push({
-                event: 'calories_calculator_submit',
-                activity_factor: payload.activity,
-                gender: payload.gender,
-                maintenance_calories: result.maintenance
-            });
+                window.dataLayer.push({
+                    event: 'calories_calculator_submit',
+                    activity_factor: payload.activity,
+                    gender: payload.gender,
+                    maintenance_calories: result.maintenance
+                });
 
-            if (window.fbq) {
-                window.fbq('track', 'Lead');
+                if (window.fbq) {
+                    window.fbq('track', 'Lead');
+                }
+
+                window.location.href = './resultado.html';
+            } catch (saveError) {
+                console.error(saveError);
+                error.textContent = 'No hemos podido guardar tus datos. Intentalo de nuevo en unos segundos.';
+                submitButton.disabled = false;
+                submitButton.textContent = defaultButtonText;
             }
-
-            window.location.href = './resultado.html';
         });
     }
 
