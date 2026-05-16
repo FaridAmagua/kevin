@@ -52,7 +52,7 @@ a {
 
 .calculator-card,
 .result-card {
-    width: min(100%, 620px);
+    width: min(100%, 980px);
     border: 1px solid var(--border-soft);
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.94);
@@ -60,7 +60,8 @@ a {
 }
 
 .calculator-card {
-    padding: clamp(1.4rem, 3.4vw, 2.6rem);
+    padding: clamp(2rem, 5vw, 4.4rem);
+    text-align: center;
 }
 
 .brand-mark {
@@ -120,8 +121,14 @@ h1 {
 }
 
 .calories-form {
+    width: min(100%, 720px);
+    margin: 0 auto;
+    border-radius: 8px;
+    background: var(--bg-soft);
+    padding: clamp(1rem, 2.5vw, 1.5rem);
     display: grid;
     gap: 1rem;
+    text-align: left;
 }
 
 .form-row {
@@ -178,7 +185,7 @@ select {
     min-height: 48px;
     border: 1px solid var(--border-soft);
     border-radius: 8px;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.92);
     color: var(--text-primary);
     padding: 0 1rem;
     outline: none;
@@ -241,6 +248,10 @@ select:focus {
     letter-spacing: 0.04em;
     text-transform: uppercase;
     transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-button {
+    margin-top: 0.25rem;
 }
 
 .submit-button:hover,
@@ -381,6 +392,9 @@ select:focus {
     }
 
     .calories-form {
+        width: 100%;
+        background: #ffffff;
+        padding: 0;
         gap: 0.9rem;
     }
 
