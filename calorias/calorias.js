@@ -56,6 +56,22 @@
         }
 
         if (LEAD_WEBHOOK_URL.includes('script.google.com')) {
+            if (navigator.sendBeacon) {
+                const queued = navigator.sendBeacon(
+                    LEAD_WEBHOOK_URL,
+                    new Blob([createLeadPayload(result)], {
+                        type: 'text/plain;charset=utf-8'
+                    })
+                );
+
+                if (queued) {
+                    return wait(900).then(() => ({
+                        ok: true,
+                        beacon: true
+                    }));
+                }
+            }
+
             const request = fetch(LEAD_WEBHOOK_URL, {
                 method: 'POST',
                 mode: 'no-cors',
@@ -152,9 +168,10 @@
                 createdAt: new Date().toISOString()
             };
 
+            sessionStorage.setItem(STORAGE_KEY, JSON.stringify(result));
+
             try {
                 await saveLead(result);
-                sessionStorage.setItem(STORAGE_KEY, JSON.stringify(result));
 
                 window.dataLayer.push({
                     event: 'calories_calculator_submit',
@@ -206,6 +223,10 @@
             maintenance_calories: result.maintenance,
             loss_calories: result.loss,
             gain_calories: result.gain
+        });
+
+        saveLead(result).catch((error) => {
+            console.warn('Nutri TP: no se pudo reintentar el guardado desde resultados.', error);
         });
 
         document.querySelectorAll('[data-calendly-link]').forEach((button) => {
