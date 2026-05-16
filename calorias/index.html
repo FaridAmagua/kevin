@@ -128,7 +128,7 @@
 
                 <label class="privacy-check">
                     <input type="checkbox" name="privacy" required>
-                    <span>He leido y consiento la <a href="../index.html" target="_blank" rel="noopener">politica de privacidad</a>.</span>
+                    <span>He leido y consiento la <button class="privacy-link" type="button" data-privacy-open>politica de privacidad</button>.</span>
                 </label>
 
                 <p class="form-error" id="form-error" role="alert" aria-live="polite"></p>
@@ -137,6 +137,36 @@
             </form>
         </section>
     </main>
+
+    <dialog class="privacy-modal" id="privacy-modal" aria-labelledby="privacy-title">
+        <div class="privacy-panel">
+            <button class="privacy-close" type="button" data-privacy-close aria-label="Cerrar">×</button>
+            <p class="eyebrow">Privacidad y consentimiento</p>
+            <h2 id="privacy-title">Uso de tus datos</h2>
+            <div class="privacy-content">
+                <p>
+                    Al enviar este formulario autorizas a Nutri TP a tratar los datos introducidos para calcular tus
+                    calorias, registrar tu solicitud y contactar contigo en relacion con asesorias, valoraciones,
+                    seguimiento comercial y comunicaciones sobre nuestros servicios.
+                </p>
+                <p>
+                    Usaremos tu nombre, correo electronico, edad, genero, altura, peso, nivel de actividad y resultado
+                    estimado de calorias para personalizar la comunicacion, evitar duplicados por email y mejorar
+                    nuestras campanas y procesos internos.
+                </p>
+                <p>
+                    Tus datos podran integrarse con herramientas como Google Sheets, n8n, Meta, Google Tag Manager u
+                    otras plataformas de automatizacion, analitica y marketing necesarias para gestionar la solicitud.
+                    No vendemos tus datos a terceros.
+                </p>
+                <p>
+                    Puedes solicitar acceso, rectificacion o eliminacion de tus datos escribiendo al canal de contacto
+                    habitual de Nutri TP. Si no estas de acuerdo, no marques la casilla ni envies el formulario.
+                </p>
+            </div>
+            <button class="privacy-accept" type="button" data-privacy-close>Entendido</button>
+        </div>
+    </dialog>
 
     <script src="./calorias.js"></script>
 </body>

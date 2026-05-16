@@ -79,8 +79,7 @@ a {
 
 .calculator-card {
     width: min(100%, 980px);
-    border-radius: 22px;
-    background: #ffffff;
+    background: transparent;
 }
 
 .calculator-card {
@@ -229,8 +228,6 @@ h1 {
     display: grid;
     gap: 1rem;
     text-align: left;
-    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
-    border: 1px solid var(--border-soft);
 }
 
 .form-row {
@@ -323,9 +320,15 @@ select:focus {
     padding: 0;
 }
 
-.privacy-check a {
+.privacy-link {
+    appearance: none;
+    border: 0;
+    background: transparent;
     color: var(--text-primary);
+    cursor: pointer;
     font-weight: 800;
+    padding: 0;
+    text-decoration: underline;
 }
 
 .form-error {
@@ -334,6 +337,79 @@ select:focus {
     font-size: 0.9rem;
     font-weight: 700;
     text-align: center;
+}
+
+.privacy-modal {
+    width: min(calc(100% - 2rem), 680px);
+    border: 0;
+    border-radius: 8px;
+    padding: 0;
+    color: var(--text-primary);
+    background: transparent;
+}
+
+.privacy-modal::backdrop {
+    background: rgba(0, 0, 0, 0.52);
+}
+
+.privacy-panel {
+    position: relative;
+    border-radius: 8px;
+    background: #ffffff;
+    padding: clamp(1.4rem, 3vw, 2rem);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+}
+
+.privacy-panel h2 {
+    margin-top: 0.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.privacy-content {
+    max-height: min(52vh, 460px);
+    margin-top: 1rem;
+    overflow: auto;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.privacy-content p + p {
+    margin-top: 0.9rem;
+}
+
+.privacy-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.05);
+    color: #111111;
+    cursor: pointer;
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.privacy-accept {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 1.2rem;
+    border: 0;
+    border-radius: 8px;
+    background: #111111;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
 .submit-button,
@@ -453,10 +529,14 @@ select:focus {
         background: #ffffff;
     }
 
+    .calculator-header {
+        padding: 1rem 1rem 2.2rem;
+    }
+
     .calculator-shell,
     .result-shell {
         min-height: auto;
-        padding: 5.25rem 0.75rem 2.5rem;
+        padding: 3.65rem 0.75rem 2rem;
         align-items: start;
     }
 
@@ -470,12 +550,12 @@ select:focus {
         border: 0;
         border-radius: 0;
         box-shadow: none;
-        background: #ffffff;
-        padding: 0.5rem 0.25rem 0;
+        background: transparent;
+        padding: 0 0.25rem;
     }
 
     .brand-mark {
-        font-size: 1.45rem;
+        font-size: 1.25rem;
     }
 
     .brand-mark-large {
@@ -484,24 +564,26 @@ select:focus {
     }
 
     .eyebrow {
-        font-size: 0.72rem;
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
     }
 
     h1 {
-        max-width: 8.6ch;
+        max-width: 10.2ch;
         margin-left: auto;
         margin-right: auto;
-        font-size: clamp(2.25rem, 12vw, 3rem);
-        line-height: 0.94;
+        font-size: clamp(1.65rem, 8.8vw, 2.1rem);
+        line-height: 0.92;
         letter-spacing: -0.045em;
     }
 
     .intro,
     .result-intro {
         width: min(100%, 21rem);
-        margin-bottom: 1.45rem;
-        font-size: 1rem;
-        line-height: 1.5;
+        margin-top: 0.55rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.84rem;
+        line-height: 1.35;
         text-wrap: balance;
     }
 
@@ -511,10 +593,11 @@ select:focus {
         padding: 0;
         border: 0;
         box-shadow: none;
-        gap: 0.9rem;
+        gap: 0.5rem;
     }
 
     .badge-proof {
+        display: none;
         width: 100%;
         align-items: center;
         margin-bottom: 1rem;
@@ -531,8 +614,9 @@ select:focus {
     }
 
     .calculator-benefits {
-        margin-bottom: 1.25rem;
-        gap: 0.45rem;
+        display: none;
+        margin-bottom: 0.65rem;
+        gap: 0.35rem;
     }
 
     .calculator-benefits li {
@@ -547,19 +631,68 @@ select:focus {
 
     .radio-grid {
         grid-template-columns: 1fr 1fr;
-        min-height: 44px;
+        min-height: 34px;
+        gap: 0.5rem;
+    }
+
+    .field {
+        gap: 0.25rem;
+    }
+
+    .field span,
+    .fieldset legend {
+        font-size: 0.78rem;
+    }
+
+    .radio-grid label {
+        font-size: 0.86rem;
+    }
+
+    input[type="radio"],
+    .privacy-check input {
+        width: 14px;
+        min-width: 14px;
+        height: 14px;
+        min-height: 14px;
     }
 
     input,
     select {
-        min-height: 46px;
+        min-height: 38px;
         border-radius: 8px;
-        font-size: 0.95rem;
+        font-size: 0.88rem;
+        padding-inline: 0.75rem;
+    }
+
+    .privacy-check {
+        gap: 0.55rem;
+        font-size: 0.72rem;
+        line-height: 1.3;
+    }
+
+    .form-error {
+        min-height: 0.95rem;
+        font-size: 0.76rem;
     }
 
     .submit-button {
-        min-height: 54px;
-        margin-top: 0.15rem;
+        min-height: 43px;
+        margin-top: 0.05rem;
+        font-size: 0.82rem;
+    }
+
+    .privacy-panel {
+        padding: 1.35rem 1rem 1rem;
+    }
+
+    .privacy-content {
+        max-height: 58vh;
+        font-size: 0.86rem;
+        line-height: 1.55;
+    }
+
+    .privacy-accept {
+        min-height: 46px;
     }
 
     .result-card {
