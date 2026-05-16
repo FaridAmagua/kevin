@@ -50,12 +50,10 @@ body {
 @keyframes fadeInPage {
     0% {
         opacity: 0;
-        transform: translateY(10px);
     }
 
     100% {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
@@ -1359,6 +1357,47 @@ body {
     border-color: #444;
 }
 
+.calendly-overlay,
+.calendly-popup {
+    z-index: 999999 !important;
+}
+
+.calendly-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+}
+
+.calendly-popup {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    max-height: calc(100vh - 32px) !important;
+}
+
+.calendly-popup-content {
+    height: calc(100vh - 32px) !important;
+    max-height: calc(100vh - 32px) !important;
+}
+
+.calendly-popup-content iframe {
+    height: 100% !important;
+}
+
+@media (max-width: 767px) {
+    .calendly-popup {
+        width: calc(100vw - 20px) !important;
+        max-width: 520px !important;
+        height: calc(100dvh - 20px) !important;
+        max-height: calc(100dvh - 20px) !important;
+    }
+
+    .calendly-popup-content {
+        height: calc(100dvh - 20px) !important;
+        max-height: calc(100dvh - 20px) !important;
+    }
+}
+
 /* Footer */
 .footer {
     text-align: center;
@@ -1378,5 +1417,3 @@ body {
     color: #888;
     font-size: 0.85rem;
 }
-
-
