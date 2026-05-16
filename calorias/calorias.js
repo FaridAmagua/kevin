@@ -33,6 +33,20 @@
         return String(email || '').trim().toLowerCase();
     }
 
+    function createLeadPayload(result) {
+        return JSON.stringify({
+            id: result.email,
+            source: 'calories_calculator',
+            ...result
+        });
+    }
+
+    function wait(ms) {
+        return new Promise((resolve) => {
+            window.setTimeout(resolve, ms);
+        });
+    }
+
     async function saveLead(result) {
         if (!LEAD_WEBHOOK_URL) {
             console.warn('Nutri TP: falta configurar LEAD_WEBHOOK_URL para guardar leads.');
@@ -42,23 +56,31 @@
         }
 
         if (LEAD_WEBHOOK_URL.includes('script.google.com')) {
-            await fetch(LEAD_WEBHOOK_URL, {
+            const request = fetch(LEAD_WEBHOOK_URL, {
                 method: 'POST',
                 mode: 'no-cors',
+                keepalive: true,
                 headers: {
                     'Content-Type': 'text/plain;charset=utf-8'
                 },
-                body: JSON.stringify({
-                    id: result.email,
-                    source: 'calories_calculator',
-                    ...result
-                })
+                body: createLeadPayload(result)
+            }).catch((error) => {
+                console.warn('Nutri TP: Apps Script tardo o no confirmo el guardado.', error);
+                return {
+                    delayed: true
+                };
             });
 
-            return {
-                ok: true,
-                opaque: true
-            };
+            return Promise.race([
+                request.then(() => ({
+                    ok: true,
+                    opaque: true
+                })),
+                wait(3500).then(() => ({
+                    ok: true,
+                    timeout: true
+                }))
+            ]);
         }
 
         const response = await fetch(LEAD_WEBHOOK_URL, {
@@ -66,11 +88,7 @@
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                id: result.email,
-                source: 'calories_calculator',
-                ...result
-            })
+            body: createLeadPayload(result)
         });
 
         if (!response.ok) {
@@ -115,7 +133,7 @@
 
             error.textContent = '';
             submitButton.disabled = true;
-            submitButton.textContent = 'Calculando...';
+            submitButton.textContent = 'Guardando...';
 
             const formData = new FormData(form);
             const payload = {
