@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcula tus calorias | Nutri TP</title>
+    <meta name="description" content="Calculadora de calorias diaria de Nutri TP para mujeres latinas que quieren empezar su cambio con datos claros.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#f8f2ec">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MWN6KKHT');</script>
+    <!-- End Google Tag Manager -->
+    <link rel="canonical" href="https://cute-monstera-3b5ed7.netlify.app/calorias/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1562018114790795');
+        fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code -->
+</head>
+<body class="calories-page">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWN6KKHT"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1562018114790795&ev=PageView&noscript=1" alt=""></noscript>
+
+    <main class="calculator-shell">
+        <section class="calculator-card" aria-labelledby="calculator-title">
+            <a class="brand-mark" href="../index.html" aria-label="Volver a Nutri TP">
+                <span>Nutri</span>
+                <strong>TP</strong>
+            </a>
+
+            <p class="eyebrow">Calculadora personalizada</p>
+            <h1 id="calculator-title">Calcula tus calorias</h1>
+            <p class="intro">El primer paso para cambiar tu cuerpo es saber exactamente que necesita.</p>
+
+            <form class="calories-form" id="calories-form" novalidate>
+                <div class="form-row">
+                    <label class="field">
+                        <span>&iquest;Cuantos anos tienes?</span>
+                        <input type="number" name="age" inputmode="numeric" min="14" max="85" placeholder="Ej: 32" required>
+                    </label>
+
+                    <fieldset class="field fieldset">
+                        <legend>Genero</legend>
+                        <div class="radio-grid">
+                            <label><input type="radio" name="gender" value="female" required> Mujer</label>
+                            <label><input type="radio" name="gender" value="male" required> Hombre</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-row">
+                    <label class="field">
+                        <span>&iquest;Cuanto mides? (cm)</span>
+                        <input type="number" name="height" inputmode="decimal" min="120" max="230" placeholder="Ej: 165" required>
+                    </label>
+
+                    <label class="field">
+                        <span>&iquest;Cuanto pesas? (kg)</span>
+                        <input type="number" name="weight" inputmode="decimal" min="35" max="220" step="0.1" placeholder="Ej: 72" required>
+                    </label>
+                </div>
+
+                <label class="field">
+                    <span>&iquest;Cual es tu actividad?</span>
+                    <select name="activity" required>
+                        <option value="">Selecciona tu nivel de actividad</option>
+                        <option value="1.2">Sedentaria: poco o nada de ejercicio</option>
+                        <option value="1.375">Ligera: entrenas 1-3 dias por semana</option>
+                        <option value="1.55">Moderada: entrenas 3-5 dias por semana</option>
+                        <option value="1.725">Alta: entrenas 6-7 dias por semana</option>
+                    </select>
+                </label>
+
+                <label class="field">
+                    <span>&iquest;Como te llamas?</span>
+                    <input type="text" name="name" autocomplete="name" placeholder="Tu nombre" required>
+                </label>
+
+                <label class="field">
+                    <span>Correo</span>
+                    <input type="email" name="email" autocomplete="email" placeholder="Tu email aqui" required>
+                </label>
+
+                <label class="privacy-check">
+                    <input type="checkbox" name="privacy" required>
+                    <span>He leido y consiento la <a href="../index.html" target="_blank" rel="noopener">politica de privacidad</a>.</span>
+                </label>
+
+                <p class="form-error" id="form-error" role="alert" aria-live="polite"></p>
+
+                <button class="submit-button" type="submit">Calcular</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="./calorias.js"></script>
+</body>
+</html>
