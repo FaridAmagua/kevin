@@ -46,7 +46,7 @@ a {
     width: min(100%, 1180px);
     min-height: 100vh;
     margin: 0 auto;
-    padding: 5rem 1rem 2rem;
+    padding: 3.45rem 1rem 0.75rem;
     display: grid;
     place-items: center;
 }
@@ -66,7 +66,7 @@ a {
     left: 0;
     z-index: 10;
     width: 100%;
-    padding: 2rem 1rem 3.5rem;
+    padding: 1.45rem 1rem 2.75rem;
     display: flex;
     justify-content: center;
     background: linear-gradient(to bottom, rgba(206, 209, 217, 0.92) 0%, rgba(206, 209, 217, 0.42) 52%, rgba(206, 209, 217, 0) 100%);
@@ -83,7 +83,7 @@ a {
 }
 
 .calculator-card {
-    padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem) 1rem;
+    padding: clamp(1rem, 2.4vw, 2rem) clamp(1rem, 3vw, 2rem) 0.5rem;
     text-align: center;
 }
 
@@ -120,7 +120,7 @@ a {
 .badge-proof {
     width: fit-content;
     max-width: 100%;
-    margin: 0 auto 1.25rem;
+    margin: 0 auto 0.65rem;
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -174,8 +174,8 @@ a {
 }
 
 h1 {
-    margin-top: 0.6rem;
-    font-size: clamp(2.35rem, 5.4vw, 4.7rem);
+    margin-top: 0.35rem;
+    font-size: clamp(2rem, 4.6vw, 3.65rem);
     line-height: 0.92;
     letter-spacing: -0.06em;
     text-align: center;
@@ -189,34 +189,13 @@ h1 {
 .intro,
 .result-intro {
     max-width: 42rem;
-    margin: 1rem auto 1.4rem;
+    margin: 0.55rem auto 0.75rem;
     color: var(--text-secondary);
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
     font-style: italic;
     font-weight: 700;
     line-height: 1.55;
     text-align: center;
-}
-
-.calculator-benefits {
-    max-width: 720px;
-    margin: 0 auto 1.5rem;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.55rem;
-    list-style: none;
-}
-
-.calculator-benefits li {
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 999px;
-    background: rgba(0, 0, 0, 0.03);
-    padding: 0.45rem 0.85rem;
-    color: var(--text-secondary);
-    font-size: 0.88rem;
-    font-weight: 700;
 }
 
 .calories-form {
@@ -224,21 +203,21 @@ h1 {
     margin: 0 auto;
     border-radius: 8px;
     background: #ffffff;
-    padding: clamp(1rem, 2.5vw, 1.5rem);
+    padding: clamp(0.55rem, 1.35vw, 0.9rem);
     display: grid;
-    gap: 1rem;
+    gap: 0.55rem;
     text-align: left;
 }
 
 .form-row {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
+    gap: 0.72rem 1rem;
 }
 
 .field {
     display: grid;
-    gap: 0.45rem;
+    gap: 0.28rem;
 }
 
 .field span,
@@ -253,7 +232,7 @@ h1 {
 }
 
 .radio-grid {
-    min-height: 48px;
+    min-height: 42px;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
@@ -281,7 +260,7 @@ input[type="radio"] {
 input,
 select {
     width: 100%;
-    min-height: 48px;
+    min-height: 38px;
     border: 1px solid var(--border-soft);
     border-radius: 8px;
     background: #ffffff;
@@ -302,7 +281,7 @@ select:focus {
 }
 
 .privacy-check {
-    margin-top: 0.2rem;
+    margin-top: 0.05rem;
     display: flex;
     align-items: flex-start;
     gap: 0.7rem;
@@ -415,7 +394,7 @@ select:focus {
 .submit-button,
 .booking-button {
     width: 100%;
-    min-height: 56px;
+    min-height: 46px;
     border: 0;
     border-radius: 8px;
     background: linear-gradient(135deg, #111111, #333333);
@@ -530,13 +509,13 @@ select:focus {
     }
 
     .calculator-header {
-        padding: 1rem 1rem 2.2rem;
+        padding: 0.55rem 1rem 1.4rem;
     }
 
     .calculator-shell,
     .result-shell {
         min-height: auto;
-        padding: 3.65rem 0.75rem 2rem;
+        padding: 2.15rem 0.75rem 0.8rem;
         align-items: start;
     }
 
@@ -555,7 +534,7 @@ select:focus {
     }
 
     .brand-mark {
-        font-size: 1.25rem;
+        font-size: 1.05rem;
     }
 
     .brand-mark-large {
@@ -564,26 +543,26 @@ select:focus {
     }
 
     .eyebrow {
-        font-size: 0.62rem;
-        letter-spacing: 0.1em;
+        font-size: 0.54rem;
+        letter-spacing: 0.085em;
     }
 
     h1 {
-        max-width: 10.2ch;
+        max-width: 14ch;
         margin-left: auto;
         margin-right: auto;
-        font-size: clamp(1.65rem, 8.8vw, 2.1rem);
-        line-height: 0.92;
+        font-size: clamp(1.25rem, 6.4vw, 1.58rem);
+        line-height: 0.9;
         letter-spacing: -0.045em;
     }
 
     .intro,
     .result-intro {
         width: min(100%, 21rem);
-        margin-top: 0.55rem;
-        margin-bottom: 0.75rem;
-        font-size: 0.84rem;
-        line-height: 1.35;
+        margin-top: 0.35rem;
+        margin-bottom: 0.38rem;
+        font-size: 0.66rem;
+        line-height: 1.2;
         text-wrap: balance;
     }
 
@@ -593,7 +572,7 @@ select:focus {
         padding: 0;
         border: 0;
         box-shadow: none;
-        gap: 0.5rem;
+        gap: 0.34rem;
     }
 
     .badge-proof {
@@ -613,39 +592,32 @@ select:focus {
         white-space: normal;
     }
 
-    .calculator-benefits {
-        display: none;
-        margin-bottom: 0.65rem;
-        gap: 0.35rem;
+    .form-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.34rem 0.65rem;
     }
 
-    .calculator-benefits li {
-        font-size: 0.78rem;
-        padding: 0.4rem 0.65rem;
-    }
-
-    .form-row,
     .result-item {
         grid-template-columns: 1fr;
     }
 
     .radio-grid {
         grid-template-columns: 1fr 1fr;
-        min-height: 34px;
-        gap: 0.5rem;
+        min-height: 27px;
+        gap: 0.28rem;
     }
 
     .field {
-        gap: 0.25rem;
+        gap: 0.16rem;
     }
 
     .field span,
     .fieldset legend {
-        font-size: 0.78rem;
+        font-size: 0.62rem;
     }
 
     .radio-grid label {
-        font-size: 0.86rem;
+        font-size: 0.68rem;
     }
 
     input[type="radio"],
@@ -658,27 +630,28 @@ select:focus {
 
     input,
     select {
-        min-height: 38px;
+        min-height: 30px;
         border-radius: 8px;
-        font-size: 0.88rem;
-        padding-inline: 0.75rem;
+        font-size: 0.72rem;
+        padding-inline: 0.55rem;
     }
 
     .privacy-check {
-        gap: 0.55rem;
-        font-size: 0.72rem;
-        line-height: 1.3;
+        gap: 0.45rem;
+        font-size: 0.62rem;
+        line-height: 1.2;
+        margin-top: 0.05rem;
     }
 
     .form-error {
-        min-height: 0.95rem;
-        font-size: 0.76rem;
+        min-height: 0.65rem;
+        font-size: 0.68rem;
     }
 
     .submit-button {
-        min-height: 43px;
+        min-height: 34px;
         margin-top: 0.05rem;
-        font-size: 0.82rem;
+        font-size: 0.72rem;
     }
 
     .privacy-panel {
