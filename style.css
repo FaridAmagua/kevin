@@ -149,50 +149,88 @@ body {
 }
 
 .price-countdown {
-    width: min(100%, 680px);
-    margin: 0 auto 1.1rem;
-    padding: 0.75rem 1rem;
-    border: 1px solid rgba(169, 102, 87, 0.2);
-    border-radius: 14px;
-    background: rgba(169, 102, 87, 0.06);
+    width: min(100%, 760px);
+    margin: -0.25rem auto 1rem;
+    padding: 0.45rem 0.55rem;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.03);
     color: var(--text-primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
 }
 
 .price-countdown p {
-    margin: 0 0 0.55rem;
-    color: var(--accent-strong);
-    font-size: 0.9rem;
-    font-weight: 800;
-    line-height: 1.35;
+    max-width: 410px;
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.25;
+    text-align: left;
 }
 
 .price-countdown-timer {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
 }
 
 .price-countdown-timer span {
-    min-height: 54px;
-    border-radius: 10px;
+    min-width: 48px;
+    min-height: 38px;
+    border-radius: 999px;
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.08);
     display: grid;
     place-items: center;
-    padding: 0.35rem;
+    padding: 0.25rem 0.4rem;
 }
 
 .price-countdown-timer strong {
     color: #111111;
-    font-size: 1.35rem;
+    font-size: 0.98rem;
     line-height: 1;
 }
 
 .price-countdown-timer small {
     color: var(--text-secondary);
-    font-size: 0.68rem;
+    font-size: 0.56rem;
     font-weight: 800;
     text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+    .price-countdown {
+        width: 100%;
+        border-radius: 18px;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0.45rem;
+        margin-bottom: 0.9rem;
+        padding: 0.6rem;
+    }
+
+    .price-countdown p {
+        max-width: none;
+        text-align: center;
+        font-size: 0.78rem;
+    }
+
+    .price-countdown-timer {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.35rem;
+    }
+
+    .price-countdown-timer span {
+        min-width: 0;
+        min-height: 38px;
+    }
 }
 
 .avatars {

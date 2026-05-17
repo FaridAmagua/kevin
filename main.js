@@ -281,7 +281,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const pad = (value) => String(value).padStart(2, '0');
 
         const updateCountdown = () => {
-            const remaining = Math.max(0, deadline - Date.now());
+            const remaining = deadline - Date.now();
+
+            if (remaining <= 0) {
+                countdown.hidden = true;
+                window.clearInterval(intervalId);
+                return;
+            }
+
             const totalSeconds = Math.floor(remaining / 1000);
             const days = Math.floor(totalSeconds / 86400);
             const hours = Math.floor((totalSeconds % 86400) / 3600);
@@ -294,8 +301,9 @@ document.addEventListener('DOMContentLoaded', () => {
             secondsEl.textContent = pad(seconds);
         };
 
+        let intervalId = null;
         updateCountdown();
-        window.setInterval(updateCountdown, 1000);
+        intervalId = window.setInterval(updateCountdown, 1000);
     });
 
     // --- VIDEO/IFRAME EVENT FOR DELAYED CTA ---
