@@ -1,6 +1,6 @@
 (function () {
     const STORAGE_KEY = 'nutritp_calories_result';
-    const CALENDLY_URL = 'https://calendly.com/d/ct9m-g6s-8xk/llamada-de-valoracion-nutritp?hide_event_type_details=1&hide_gdpr_banner=1';
+    const WHATSAPP_URL = 'https://wa.me/34691228316?text=Hola%2C%20acabo%20de%20calcular%20mis%20calor%C3%ADas%20en%20Nutri%20TP%20y%20quiero%20informaci%C3%B3n%20sobre%20la%20asesor%C3%ADa.';
     const LEAD_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbx_gSne0mmUwH4IvN2t9FObZLHOGTZAUS19s4JzWQCbgM3kN-vbjtwgFrA6HcldOKx_/exec';
 
     window.dataLayer = window.dataLayer || [];
@@ -116,15 +116,6 @@
         }));
     }
 
-    function openCalendlyPopup() {
-        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-            window.Calendly.initPopupWidget({ url: CALENDLY_URL });
-            return;
-        }
-
-        window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer');
-    }
-
     function initForm() {
         const form = document.querySelector('#calories-form');
         if (!form) return;
@@ -229,15 +220,13 @@
             console.warn('Nutri TP: no se pudo reintentar el guardado desde resultados.', error);
         });
 
-        document.querySelectorAll('[data-calendly-link]').forEach((button) => {
-            button.addEventListener('click', () => {
+        document.querySelectorAll('[data-whatsapp-link]').forEach((link) => {
+            link.addEventListener('click', () => {
                 window.dataLayer.push({
-                    event: 'schedule_click',
+                    event: 'whatsapp_click',
                     button_location: 'calories_result',
-                    calendly_url: CALENDLY_URL
+                    whatsapp_url: WHATSAPP_URL
                 });
-
-                openCalendlyPopup();
             });
         });
     }
