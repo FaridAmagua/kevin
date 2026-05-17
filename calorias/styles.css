@@ -325,6 +325,12 @@ select:focus {
     padding: 0;
     color: var(--text-primary);
     background: transparent;
+    margin: auto;
+}
+
+.privacy-modal[open] {
+    display: grid;
+    place-items: center;
 }
 
 .privacy-modal::backdrop {
