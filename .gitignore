@@ -1,0 +1,28 @@
+# Local editor settings
+.vscode/
+.idea/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+Thumbs.db
+.DS_Store
+
+# Dependencies and build output
+node_modules/
+dist/
+build/
+.cache/
+
+# Large local media exports
+Video.mp4
+*.mov
+*.avi
+*.mkv

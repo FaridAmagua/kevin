@@ -268,6 +268,36 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(updateCounter);
     }
 
+    // --- PRICE COUNTDOWN ---
+    document.querySelectorAll('[data-countdown-deadline]').forEach((countdown) => {
+        const deadline = new Date(countdown.dataset.countdownDeadline).getTime();
+        const daysEl = countdown.querySelector('[data-countdown-days]');
+        const hoursEl = countdown.querySelector('[data-countdown-hours]');
+        const minutesEl = countdown.querySelector('[data-countdown-minutes]');
+        const secondsEl = countdown.querySelector('[data-countdown-seconds]');
+
+        if (!deadline || !daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+        const pad = (value) => String(value).padStart(2, '0');
+
+        const updateCountdown = () => {
+            const remaining = Math.max(0, deadline - Date.now());
+            const totalSeconds = Math.floor(remaining / 1000);
+            const days = Math.floor(totalSeconds / 86400);
+            const hours = Math.floor((totalSeconds % 86400) / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            daysEl.textContent = pad(days);
+            hoursEl.textContent = pad(hours);
+            minutesEl.textContent = pad(minutes);
+            secondsEl.textContent = pad(seconds);
+        };
+
+        updateCountdown();
+        window.setInterval(updateCountdown, 1000);
+    });
+
     // --- VIDEO/IFRAME EVENT FOR DELAYED CTA ---
     const heroVideo = document.getElementById('hero-video');
     const videoOverlay = document.getElementById('video-cta-overlay');
