@@ -185,21 +185,21 @@ body {
     min-width: 50px;
     min-height: 44px;
     border-radius: 0;
-    background: #fffaf7;
-    border: 1px solid rgba(217, 180, 159, 0.5);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.26);
     display: grid;
     place-items: center;
     padding: 0.22rem 0.35rem;
 }
 
 .price-countdown-timer strong {
-    color: #111111;
+    color: #ffffff;
     font-size: 1.08rem;
     line-height: 1;
 }
 
 .price-countdown-timer small {
-    color: #8D5347;
+    color: rgba(255, 255, 255, 0.72);
     font-size: 0.5rem;
     font-weight: 800;
     text-transform: uppercase;
