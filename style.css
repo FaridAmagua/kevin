@@ -1519,7 +1519,7 @@ body {
         max-width: 520px !important;
         height: calc(100dvh - 10px) !important;
         max-height: calc(100dvh - 10px) !important;
-        top: 5px !important;
+        top: 28px !important;
         transform: translateX(-50%) !important;
     }
 
