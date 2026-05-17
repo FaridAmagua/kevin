@@ -163,22 +163,27 @@ body {
     box-shadow: 0 16px 34px rgba(0, 0, 0, 0.08);
 }
 
-.price-countdown p {
+.price-countdown-copy {
     max-width: 470px;
+    display: grid;
+    gap: 0.3rem;
+    text-align: left;
+}
+
+.price-countdown p {
     margin: 0;
     color: #111111;
     font-size: 0.86rem;
     font-weight: 800;
     line-height: 1.28;
-    text-align: left;
     text-transform: uppercase;
 }
 
 .price-countdown-label {
     display: inline-flex;
     align-items: center;
+    width: fit-content;
     min-height: 22px;
-    margin-right: 0.45rem;
     padding: 0.25rem 0.45rem;
     background: #111111;
     color: #ffffff;
@@ -246,8 +251,13 @@ body {
         font-size: 0.76rem;
     }
 
+    .price-countdown-copy {
+        max-width: none;
+        justify-items: center;
+        text-align: center;
+    }
+
     .price-countdown-label {
-        margin: 0 0 0.35rem;
         justify-content: center;
     }
 
