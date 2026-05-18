@@ -168,7 +168,7 @@ body {
     max-width: none;
     display: grid;
     gap: 0.35rem;
-    text-align: left;
+    text-align: center;
 }
 
 .price-countdown p {
