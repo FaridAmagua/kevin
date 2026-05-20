@@ -498,7 +498,7 @@ select:focus {
 .investment-note {
     max-width: 52rem;
     margin: 1.4rem auto 0;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     font-size: clamp(1rem, 2vw, 1.2rem);
     font-style: italic;
     font-weight: 700;
