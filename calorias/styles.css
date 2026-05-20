@@ -399,6 +399,9 @@ select:focus {
 
 .submit-button,
 .booking-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     min-height: 46px;
     border: 0;
@@ -490,6 +493,7 @@ select:focus {
     max-width: 760px;
     min-height: 76px;
     margin-top: 3rem;
+    padding: 0.9rem 1.4rem;
     background: linear-gradient(135deg, var(--accent-primary), var(--accent-strong));
     font-size: clamp(1rem, 2.1vw, 1.35rem);
     letter-spacing: 0.08em;
