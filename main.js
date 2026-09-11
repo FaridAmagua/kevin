@@ -134,6 +134,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- LEGAL / PRIVACY MODAL ---
+    const legalModal = document.getElementById('legalModal');
+    const legalOpenButton = document.querySelector('[data-legal-open]');
+
+    if (legalModal && legalOpenButton) {
+        const legalCloseButtons = legalModal.querySelectorAll('[data-legal-close]');
+
+        const closeLegalModal = () => {
+            legalModal.hidden = true;
+            document.body.classList.remove('result-modal-open');
+        };
+
+        legalOpenButton.addEventListener('click', () => {
+            legalModal.hidden = false;
+            document.body.classList.add('result-modal-open');
+        });
+
+        legalCloseButtons.forEach((button) => {
+            button.addEventListener('click', closeLegalModal);
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !legalModal.hidden) {
+                closeLegalModal();
+            }
+        });
+    }
+
     // --- HELP IMAGE SLIDESHOW ---
     const helpSlideshow = document.getElementById('helpSlideshow');
     if (helpSlideshow) {

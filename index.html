@@ -382,8 +382,39 @@
             NutriTP es una marca operada por SEIZZO CAPITAL LLC<br>
             1600 Van Lennen Ave, STE 101, Cheyenne, WY 82001, USA
         </p>
-        <p class="copyright">&copy; 2026 — Todos los derechos reservados.</p>
+        <p class="copyright">
+            &copy; 2026 —
+            <button class="legal-link" type="button" data-legal-open>Todos los derechos reservados.</button>
+        </p>
     </footer>
+
+    <div class="legal-modal" id="legalModal" hidden>
+        <div class="legal-modal-backdrop" data-legal-close></div>
+        <section class="legal-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle">
+            <button class="legal-modal-close" type="button" data-legal-close aria-label="Cerrar">×</button>
+            <p class="result-case-label">Privacidad y aviso legal</p>
+            <h2 id="legalModalTitle">Información legal de NutriTP</h2>
+            <div class="legal-modal-content">
+                <p>
+                    NutriTP es una marca operada por SEIZZO CAPITAL LLC<br>
+                    1600 Van Lennen Ave, STE 101, Cheyenne, WY 82001, USA
+                </p>
+                <p>
+                    Los datos enviados a través de los formularios de esta web se utilizan para gestionar solicitudes,
+                    calcular información orientativa, contactar contigo y ofrecer seguimiento comercial relacionado con
+                    nuestros servicios de nutrición y entrenamiento.
+                </p>
+                <p>
+                    Podemos usar herramientas de automatización, analítica, publicidad y gestión de clientes para
+                    procesar la información necesaria. No vendemos tus datos a terceros.
+                </p>
+                <p>
+                    Puedes solicitar acceso, rectificación o eliminación de tus datos escribiendo al canal de contacto
+                    habitual de NutriTP.
+                </p>
+            </div>
+        </section>
+    </div>
 
     <script src="https://unpkg.com/lenis@1.1.10/dist/lenis.min.js"></script>
     <script src="https://player.vimeo.com/api/player.js"></script>
