@@ -367,6 +367,23 @@ select:focus {
     margin-top: 0.9rem;
 }
 
+.legal-entity {
+    color: #4f4a45;
+    font-weight: 600;
+}
+
+.legal-footer {
+    padding: 0 1rem 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    line-height: 1.55;
+    text-align: center;
+}
+
+.legal-footer p {
+    margin: 0;
+}
+
 .privacy-close {
     position: absolute;
     top: 0.75rem;

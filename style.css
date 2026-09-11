@@ -1611,6 +1611,13 @@ body.result-modal-open {
     opacity: 1;
 }
 
+.legal-entity {
+    margin: 0 auto 0.9rem;
+    color: #888;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
 .copyright {
     color: #888;
     font-size: 0.85rem;

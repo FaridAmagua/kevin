@@ -260,6 +260,18 @@ body {
     flex-shrink: 0;
 }
 
+.thanks-footer {
+    padding: 0 1rem 1.5rem;
+    color: #7b6f67;
+    font-size: 0.82rem;
+    line-height: 1.55;
+    text-align: center;
+}
+
+.thanks-footer p {
+    margin: 0;
+}
+
 @media (max-width: 820px) {
     .thanks-page {
         width: 100%;
