@@ -1630,12 +1630,15 @@ body.result-modal-open {
     color: inherit;
     cursor: pointer;
     font: inherit;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 .legal-link:hover {
     color: #555;
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-underline-offset: 3px;
 }
 
 .legal-modal[hidden] {
